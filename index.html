@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#101f35" />
+  <meta name="description" content="말씀으로 지혜를 배우고, AI로 창조하며, 디지털 기술로 세상을 섬기는 믿음ON! AI디어ON! 기독교 AI·디지털 교육 브랜드입니다." />
+  <title>믿음ON! AI디어ON! | FAITH × AI × DIGITAL</title>
+  <style>
+    :root {
+      --navy: #101f35;
+      --navy-2: #172b46;
+      --navy-3: #233d5c;
+      --ink: #18283b;
+      --muted: #637184;
+      --paper: #f7f7f2;
+      --white: #ffffff;
+      --line: #e5e8e3;
+      --gold: #d7b36a;
+      --gold-soft: #f2e8d2;
+      --green: #789b83;
+      --green-soft: #e8f0e9;
+      --shadow: 0 18px 48px rgba(16, 31, 53, .09);
+      --radius: 22px;
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 86px; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: Pretendard, "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      line-height: 1.7;
+      word-break: keep-all;
+    }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    button:focus-visible, a:focus-visible, input:focus-visible, textarea:focus-visible {
+      outline: 3px solid rgba(215, 179, 106, .8);
+      outline-offset: 3px;
+    }
+    .skip-link {
+      position: absolute; left: 12px; top: -60px; z-index: 1000;
+      padding: 10px 14px; color: white; background: var(--navy); border-radius: 8px;
+    }
+    .skip-link:focus { top: 12px; }
+    .container { width: min(var(--max), calc(100% - 48px)); margin: 0 auto; }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px;
+      color: #9a783b; font-size: .76rem; font-weight: 800; letter-spacing: .16em;
+      text-transform: uppercase;
+    }
+    .eyebrow::before { content: ""; width: 22px; height: 1px; background: currentColor; }
+    .section { padding: 104px 0; }
+    .section-heading { max-width: 680px; margin-bottom: 42px; }
+    .section-heading h2 {
+      margin: 13px 0 12px; color: var(--navy); font-size: clamp(2rem, 4vw, 3.15rem);
+      line-height: 1.2; letter-spacing: -.055em;
+    }
+    .section-heading p { margin: 0; color: var(--muted); font-size: 1.02rem; }
+
+    /* Header */
+    .site-header {
+      position: sticky; top: 0; z-index: 100; background: rgba(247, 247, 242, .9);
+      backdrop-filter: blur(16px); border-bottom: 1px solid rgba(16, 31, 53, .08);
+    }
+    .nav-wrap { height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: inline-flex; align-items: center; gap: 11px; min-width: max-content; }
+    .brand-mark {
+      position: relative; display: grid; place-items: center; width: 40px; height: 40px;
+      color: var(--navy); background: var(--gold-soft); border: 1px solid rgba(215,179,106,.7);
+      border-radius: 13px; font-weight: 900; font-size: 1rem; letter-spacing: -.08em;
+    }
+    .brand-mark::after { content: "+"; position: absolute; right: -5px; top: -7px; color: var(--green); font-size: 1.1rem; }
+    .brand-name { display: block; color: var(--navy); font-weight: 900; font-size: 1rem; letter-spacing: -.045em; line-height: 1.15; }
+    .brand-sub { display: block; margin-top: 4px; color: #788394; font-size: .59rem; font-weight: 700; letter-spacing: .15em; }
+    .nav-menu { display: flex; align-items: center; gap: clamp(17px, 2.4vw, 32px); margin: 0; padding: 0; list-style: none; }
+    .nav-menu a { color: #526174; font-size: .88rem; font-weight: 700; transition: color .2s; }
+    .nav-menu a:hover, .nav-menu a.active { color: #a47d3a; }
+    .nav-contact {
+      display: inline-flex; align-items: center; justify-content: center; min-height: 42px;
+      padding: 0 17px; color: white !important; background: var(--navy); border-radius: 999px;
+    }
+    .menu-toggle { display: none; width: 44px; height: 44px; border: 1px solid var(--line); background: white; border-radius: 12px; color: var(--navy); cursor: pointer; }
+    .menu-toggle svg { width: 21px; height: 21px; }
+
+    /* Hero */
+    .hero { position: relative; overflow: hidden; padding: 86px 0 94px; color: white; background: var(--navy); }
+    .hero::before, .hero::after { content: ""; position: absolute; pointer-events: none; border-radius: 50%; }
+    .hero::before { width: 570px; height: 570px; right: -125px; top: -230px; border: 1px solid rgba(215,179,106,.2); box-shadow: 0 0 0 55px rgba(215,179,106,.035), 0 0 0 110px rgba(215,179,106,.025); }
+    .hero::after { width: 370px; height: 370px; left: -240px; bottom: -260px; background: rgba(120,155,131,.15); filter: blur(1px); }
+    .hero-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 58px; }
+    .hero .eyebrow { color: var(--gold); }
+    .hero h1 { margin: 20px 0 20px; font-size: clamp(2.8rem, 6.2vw, 5.35rem); line-height: 1.08; letter-spacing: -.075em; }
+    .hero h1 .highlight { color: var(--gold); }
+    .hero-lead { max-width: 630px; margin: 0; color: rgba(255,255,255,.78); font-size: clamp(1.04rem, 1.5vw, 1.22rem); line-height: 1.9; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; gap: 9px; min-height: 52px; padding: 0 22px; border: 1px solid transparent; border-radius: 999px; font-size: .91rem; font-weight: 800; cursor: pointer; transition: transform .2s, background .2s, border-color .2s; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-primary { color: var(--navy); background: var(--gold); }
+    .btn-primary:hover { background: #e4c581; }
+    .btn-outline { color: white; border-color: rgba(255,255,255,.28); background: rgba(255,255,255,.04); }
+    .btn-outline:hover { border-color: var(--gold); background: rgba(255,255,255,.09); }
+    .hero-note { display: flex; align-items: center; gap: 10px; margin-top: 28px; color: rgba(255,255,255,.58); font-size: .78rem; }
+    .hero-note span { display: inline-block; width: 6px; height: 6px; background: var(--green); border-radius: 50%; }
+    .hero-art { position: relative; min-height: 420px; display: grid; place-items: center; }
+    .orbit { position: absolute; width: min(390px, 90%); aspect-ratio: 1; border: 1px solid rgba(255,255,255,.14); border-radius: 50%; }
+    .orbit::before, .orbit::after { content: ""; position: absolute; border-radius: 50%; border: 1px solid rgba(215,179,106,.3); }
+    .orbit::before { inset: 34px; }
+    .orbit::after { inset: 75px; border-color: rgba(120,155,131,.38); }
+    .core-card {
+      position: relative; z-index: 2; width: min(300px, 78%); padding: 30px 28px 28px;
+      color: var(--navy); background: linear-gradient(145deg, #fffdf8, #eee9dc);
+      border: 1px solid rgba(255,255,255,.6); border-radius: 26px; box-shadow: 0 28px 70px rgba(0,0,0,.26);
+      transform: rotate(-3deg);
+    }
+    .core-symbol { display: grid; place-items: center; width: 54px; height: 54px; margin-bottom: 22px; color: var(--navy); background: var(--gold-soft); border-radius: 18px; }
+    .core-symbol svg { width: 29px; height: 29px; }
+    .core-card small { color: #9a783b; font-size: .67rem; font-weight: 900; letter-spacing: .16em; }
+    .core-card strong { display: block; margin-top: 8px; font-size: 1.55rem; letter-spacing: -.06em; line-height: 1.3; }
+    .core-card p { margin: 13px 0 0; color: #647184; font-size: .83rem; }
+    .float-chip { position: absolute; z-index: 3; display: flex; align-items: center; gap: 9px; padding: 11px 15px; color: white; background: rgba(35,61,92,.92); border: 1px solid rgba(255,255,255,.15); border-radius: 13px; box-shadow: 0 12px 30px rgba(0,0,0,.16); font-size: .76rem; font-weight: 700; backdrop-filter: blur(8px); }
+    .float-chip b { display: grid; place-items: center; width: 25px; height: 25px; color: var(--navy); background: var(--gold); border-radius: 8px; font-size: .7rem; }
+    .chip-one { top: 46px; left: 1%; }
+    .chip-two { right: -1%; top: 45%; }
+    .chip-three { left: 4%; bottom: 32px; }
+
+    /* Principles strip */
+    .principles { position: relative; z-index: 4; margin-top: -1px; background: #fff; border-bottom: 1px solid var(--line); }
+    .principle-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .principle { display: flex; align-items: center; gap: 16px; min-height: 116px; padding: 22px 28px; border-right: 1px solid var(--line); }
+    .principle:first-child { padding-left: 0; }
+    .principle:last-child { border-right: 0; }
+    .principle-icon { flex: 0 0 42px; display: grid; place-items: center; width: 42px; height: 42px; color: #8c6c32; background: var(--gold-soft); border-radius: 14px; }
+    .principle-icon.green { color: #4f735b; background: var(--green-soft); }
+    .principle-icon svg { width: 20px; height: 20px; }
+    .principle strong { display: block; color: var(--navy); font-size: .96rem; }
+    .principle span { display: block; margin-top: 3px; color: var(--muted); font-size: .77rem; }
+
+    /* About */
+    .about-grid { display: grid; grid-template-columns: .85fr 1.15fr; align-items: start; gap: 74px; }
+    .about-statement { position: sticky; top: 120px; padding: 34px; background: var(--navy); border-radius: var(--radius); color: white; box-shadow: var(--shadow); }
+    .about-statement .mini-label { color: var(--gold); font-size: .71rem; font-weight: 900; letter-spacing: .15em; }
+    .about-statement blockquote { margin: 19px 0 22px; font-size: clamp(1.48rem, 2.4vw, 2rem); font-weight: 800; line-height: 1.5; letter-spacing: -.055em; }
+    .about-statement p { margin: 0; color: rgba(255,255,255,.65); font-size: .88rem; }
+    .about-copy h3 { margin: 0 0 15px; color: var(--navy); font-size: 1.65rem; letter-spacing: -.045em; }
+    .about-copy > p { margin: 0 0 26px; color: var(--muted); }
+    .value-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; margin-top: 30px; }
+    .value-item { padding: 18px 18px 17px; background: white; border: 1px solid var(--line); border-radius: 16px; }
+    .value-item b { display: block; margin-bottom: 5px; color: var(--navy); font-size: .93rem; }
+    .value-item span { color: var(--muted); font-size: .8rem; }
+    .ratio-wrap { margin-top: 31px; padding: 20px 22px; background: #fff; border: 1px solid var(--line); border-radius: 16px; }
+    .ratio-top { display: flex; justify-content: space-between; gap: 15px; margin-bottom: 11px; color: var(--navy); font-size: .83rem; font-weight: 800; }
+    .ratio-bar { display: flex; height: 10px; overflow: hidden; background: var(--gold-soft); border-radius: 999px; }
+    .ratio-tech { width: 75%; background: var(--green); }
+    .ratio-faith { width: 25%; background: var(--gold); }
+    .ratio-legend { display: flex; justify-content: space-between; margin-top: 9px; color: var(--muted); font-size: .72rem; }
+
+    /* Programs */
+    .program-section { background: #eef1ed; }
+    .program-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .program-card { position: relative; display: flex; flex-direction: column; min-height: 360px; padding: 25px 22px 23px; background: #fff; border: 1px solid rgba(16,31,53,.07); border-radius: 20px; transition: transform .25s, box-shadow .25s; }
+    .program-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+    .program-number { position: absolute; top: 21px; right: 22px; color: #c2c9c4; font-size: .73rem; font-weight: 900; letter-spacing: .1em; }
+    .program-icon { display: grid; place-items: center; width: 52px; height: 52px; margin-bottom: 23px; color: #5d7c66; background: var(--green-soft); border-radius: 17px; }
+    .program-card:nth-child(2) .program-icon, .program-card:nth-child(4) .program-icon { color: #96733a; background: var(--gold-soft); }
+    .program-icon svg { width: 25px; height: 25px; }
+    .program-card h3 { margin: 0; color: var(--navy); font-size: 1.36rem; letter-spacing: -.05em; }
+    .program-card .audience { margin: 5px 0 17px; color: #8b7854; font-size: .75rem; font-weight: 800; }
+    .program-card p { margin: 0; color: var(--muted); font-size: .85rem; }
+    .tag-list { display: flex; flex-wrap: wrap; gap: 7px; margin-top: auto; padding-top: 23px; }
+    .tag { display: inline-block; padding: 5px 9px; color: #596779; background: #f2f4f1; border-radius: 7px; font-size: .69rem; font-weight: 700; }
+    .program-note { display: flex; gap: 12px; align-items: flex-start; margin-top: 22px; padding: 16px 19px; color: #5d6d63; background: rgba(255,255,255,.65); border: 1px solid #dfe7df; border-radius: 14px; font-size: .81rem; }
+    .program-note svg { flex: 0 0 18px; width: 18px; margin-top: 2px; }
+
+    /* Core areas */
+    .areas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .area-card { padding: 29px 27px 27px; background: white; border: 1px solid var(--line); border-radius: 20px; }
+    .area-kicker { color: #9a783b; font-size: .7rem; font-weight: 900; letter-spacing: .14em; }
+    .area-card h3 { margin: 9px 0 10px; color: var(--navy); font-size: 1.35rem; letter-spacing: -.045em; }
+    .area-card p { min-height: 52px; margin: 0; color: var(--muted); font-size: .86rem; }
+    .area-card ul { display: flex; flex-wrap: wrap; gap: 8px; margin: 21px 0 0; padding: 0; list-style: none; }
+    .area-card li { padding: 7px 10px; color: #526174; background: #f1f3f0; border-radius: 8px; font-size: .75rem; font-weight: 700; }
+
+    /* Projects */
+    .project-section { color: white; background: var(--navy-2); }
+    .project-section .section-heading h2 { color: white; }
+    .project-section .section-heading p { color: rgba(255,255,255,.66); }
+    .project-section .eyebrow { color: var(--gold); }
+    .project-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+    .project-card { display: grid; grid-template-columns: 125px 1fr; gap: 22px; align-items: center; min-height: 210px; padding: 25px; background: rgba(255,255,255,.055); border: 1px solid rgba(255,255,255,.12); border-radius: 20px; }
+    .project-visual { display: grid; place-items: center; min-height: 132px; color: var(--gold); background: linear-gradient(145deg, rgba(215,179,106,.17), rgba(120,155,131,.14)); border: 1px solid rgba(215,179,106,.22); border-radius: 16px; }
+    .project-visual svg { width: 42px; height: 42px; }
+    .project-card small { color: var(--gold); font-size: .69rem; font-weight: 900; letter-spacing: .13em; }
+    .project-card h3 { margin: 7px 0 7px; color: white; font-size: 1.18rem; letter-spacing: -.04em; }
+    .project-card p { margin: 0; color: rgba(255,255,255,.63); font-size: .82rem; }
+    .project-status { display: inline-flex; margin-top: 12px; padding: 4px 8px; color: #e5d2a9; background: rgba(215,179,106,.12); border-radius: 6px; font-size: .67rem; font-weight: 800; }
+    .project-footnote { margin: 22px 0 0; color: rgba(255,255,255,.48); font-size: .76rem; }
+
+    /* Faith */
+    .faith-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 60px; align-items: start; }
+    .faith-intro { padding-top: 8px; }
+    .faith-intro h2 { margin: 14px 0 16px; color: var(--navy); font-size: clamp(2rem, 4vw, 2.9rem); line-height: 1.25; letter-spacing: -.06em; }
+    .faith-intro p { margin: 0; color: var(--muted); }
+    .faith-principles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 13px; }
+    .faith-item { padding: 21px; background: white; border: 1px solid var(--line); border-radius: 16px; }
+    .faith-item .scripture { color: #9a783b; font-size: .72rem; font-weight: 900; letter-spacing: .04em; }
+    .faith-item h3 { margin: 8px 0 7px; color: var(--navy); font-size: 1.04rem; }
+    .faith-item p { margin: 0; color: var(--muted); font-size: .8rem; }
+    .faith-caution { margin-top: 18px; padding: 16px 18px; color: #586c5d; background: var(--green-soft); border-radius: 13px; font-size: .8rem; }
+
+    /* Contact */
+    .contact-section { padding: 92px 0; background: #e9eee9; }
+    .contact-panel { display: grid; grid-template-columns: 1fr .9fr; gap: 55px; padding: 52px; color: white; background: var(--navy); border-radius: 26px; box-shadow: var(--shadow); }
+    .contact-panel .eyebrow { color: var(--gold); }
+    .contact-panel h2 { margin: 13px 0 14px; font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.22; letter-spacing: -.06em; }
+    .contact-panel .intro { max-width: 490px; margin: 0; color: rgba(255,255,255,.67); font-size: .92rem; }
+    .contact-details { display: grid; gap: 12px; align-content: center; }
+    .contact-line { display: flex; align-items: center; gap: 14px; padding: 17px 18px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.11); border-radius: 13px; }
+    .contact-line svg { flex: 0 0 20px; width: 20px; color: var(--gold); }
+    .contact-line b { display: block; font-size: .85rem; }
+    .contact-line span { display: block; color: rgba(255,255,255,.58); font-size: .76rem; }
+    .contact-edit { margin: 2px 0 0; color: rgba(255,255,255,.43); font-size: .72rem; }
+
+    /* Footer */
+    footer { padding: 30px 0; color: rgba(255,255,255,.58); background: #0b1728; }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 20px; }
+    .footer-brand { color: white; font-size: .9rem; font-weight: 900; }
+    .footer-copy { margin: 4px 0 0; font-size: .7rem; }
+    .footer-links { display: flex; gap: 19px; font-size: .75rem; }
+    .footer-links a:hover { color: var(--gold); }
+
+    @media (max-width: 980px) {
+      .nav-menu { gap: 15px; }
+      .nav-menu a { font-size: .8rem; }
+      .hero-grid { gap: 20px; }
+      .hero-art { min-height: 370px; }
+      .program-grid { grid-template-columns: repeat(2, 1fr); }
+      .program-card { min-height: 315px; }
+      .about-grid { gap: 38px; }
+      .faith-grid { gap: 35px; }
+    }
+    @media (max-width: 760px) {
+      .container { width: min(100% - 36px, var(--max)); }
+      .section { padding: 76px 0; }
+      .nav-wrap { height: 68px; }
+      .menu-toggle { display: grid; place-items: center; }
+      .nav-menu {
+        position: absolute; top: 68px; left: 0; right: 0; display: none; flex-direction: column;
+        align-items: stretch; gap: 0; padding: 10px 18px 18px; background: rgba(247,247,242,.98);
+        border-bottom: 1px solid var(--line); box-shadow: 0 16px 25px rgba(16,31,53,.08);
+      }
+      .nav-menu.open { display: flex; }
+      .nav-menu a { display: block; padding: 12px 10px; font-size: .92rem; }
+      .nav-contact { margin-top: 6px; text-align: center; }
+      .hero { padding: 66px 0 61px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 15px; }
+      .hero h1 { font-size: clamp(2.65rem, 12vw, 4.3rem); }
+      .hero-art { min-height: 335px; margin-top: 8px; }
+      .orbit { width: 310px; }
+      .core-card { width: 245px; padding: 23px; }
+      .chip-one { top: 25px; left: 0; }
+      .chip-two { right: -1%; top: 48%; }
+      .chip-three { left: 0; bottom: 15px; }
+      .principle-grid { grid-template-columns: 1fr; padding: 8px 0; }
+      .principle { min-height: 83px; padding: 13px 0; border-right: 0; border-bottom: 1px solid var(--line); }
+      .principle:last-child { border-bottom: 0; }
+      .about-grid, .faith-grid { grid-template-columns: 1fr; gap: 30px; }
+      .about-statement { position: static; }
+      .areas-grid { grid-template-columns: 1fr; }
+      .area-card p { min-height: 0; }
+      .project-grid { grid-template-columns: 1fr; }
+      .contact-panel { grid-template-columns: 1fr; gap: 30px; padding: 34px 25px; }
+      .footer-inner { align-items: flex-start; flex-direction: column; }
+    }
+    @media (max-width: 480px) {
+      .brand-name { font-size: .91rem; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .btn { width: 100%; }
+      .hero-note { align-items: flex-start; line-height: 1.5; }
+      .value-list, .faith-principles { grid-template-columns: 1fr; }
+      .program-grid { grid-template-columns: 1fr; }
+      .program-card { min-height: 290px; }
+      .project-card { grid-template-columns: 84px 1fr; gap: 15px; padding: 18px; }
+      .project-visual { min-height: 104px; }
+      .project-visual svg { width: 34px; }
+      .footer-links { flex-wrap: wrap; }
+      .ratio-top { font-size: .75rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문 바로가기</a>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="믿음ON! AI디어ON! 홈으로 이동">
+        <span class="brand-mark" aria-hidden="true">ON</span>
+        <span>
+          <span class="brand-name">믿음ON! AI디어ON!</span>
+          <span class="brand-sub">FAITH × AI × DIGITAL</span>
+        </span>
+      </a>
+      <button class="menu-toggle" type="button" aria-label="메뉴 열기" aria-expanded="false" aria-controls="primary-nav">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+      <nav aria-label="주 메뉴">
+        <ul class="nav-menu" id="primary-nav">
+          <li><a href="#home">HOME</a></li>
+          <li><a href="#about">ABOUT</a></li>
+          <li><a href="#program">PROGRAM</a></li>
+          <li><a href="#project">PROJECT</a></li>
+          <li><a href="#faith">FAITH</a></li>
+          <li><a class="nav-contact" href="#contact">강의 문의</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div>
+          <span class="eyebrow">FAITH × AI × DIGITAL EDUCATION</span>
+          <h1 id="hero-title">믿음<span class="highlight">ON!</span><br />AI디어<span class="highlight">ON!</span></h1>
+          <p class="hero-lead">말씀으로 지혜를 배우고, AI로 창조하며,<br class="desktop-break" /> 디지털 기술로 세상을 섬기다.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#program">세대별 교육과정 보기 <span aria-hidden="true">→</span></a>
+            <a class="btn btn-outline" href="#contact">교육·강의 문의하기</a>
+          </div>
+          <div class="hero-note"><span aria-hidden="true"></span> 기술을 배우는 것을 넘어, 선한 영향력을 만드는 교육</div>
+        </div>
+        <div class="hero-art" aria-label="믿음과 AI, 디지털 기술의 연결을 나타내는 그래픽" role="img">
+          <div class="orbit"></div>
+          <div class="core-card">
+            <div class="core-symbol" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5v22M7 10h18M9 10c0 5 3 8 7 8s7-3 7-8M5 10h22M11 27h10"/><path d="M16 5c-4 4-6 8-6 12 0 5 2 8 6 10 4-2 6-5 6-10 0-4-2-8-6-12Z" opacity=".45"/></svg>
+            </div>
+            <small>LEARN · CREATE · SERVE</small>
+            <strong>배움이 지혜가 되고<br />기술이 섬김이 되도록</strong>
+            <p>세대와 수준에 맞춘 AI·디지털 실습 교육</p>
+          </div>
+          <div class="float-chip chip-one"><b>01</b> 지혜와 분별력</div>
+          <div class="float-chip chip-two"><b>02</b> AI 창작과 실천</div>
+          <div class="float-chip chip-three"><b>03</b> 이웃과 공동체 섬김</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="principles" aria-label="교육의 핵심 원칙">
+      <div class="container principle-grid">
+        <div class="principle">
+          <span class="principle-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 5.5v16M8 7h8M8 11h7"/></svg></span>
+          <div><strong>말씀에 뿌리를 둔 배움</strong><span>성경적 가치와 삶의 지혜를 연결합니다.</span></div>
+        </div>
+        <div class="principle">
+          <span class="principle-icon green" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M3 12h3M18 12h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1"/><circle cx="12" cy="12" r="4"/></svg></span>
+          <div><strong>직접 해보는 기술 교육</strong><span>AI 활용과 디지털 제작을 실습합니다.</span></div>
+        </div>
+        <div class="principle">
+          <span class="principle-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-8-4.4-8-10a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 11c0 5.6-8 10-8 10Z"/><path d="M8 12h8m-4-4v8"/></svg></span>
+          <div><strong>세상을 향한 선한 영향력</strong><span>배운 재능을 이웃과 공동체를 위해 나눕니다.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section" id="about" aria-labelledby="about-title">
+      <div class="container about-grid">
+        <div class="about-statement">
+          <span class="mini-label">OUR EDUCATION PHILOSOPHY</span>
+          <blockquote>기술을 잘 쓰는 사람을 넘어,<br />지혜롭게 선택하고<br />따뜻하게 나누는 사람으로.</blockquote>
+          <p>믿음ON! AI디어ON!은 성경적 가치와 AI·디지털 역량을 연결하는 교육 브랜드입니다.</p>
+        </div>
+        <div class="about-copy">
+          <span class="eyebrow">ABOUT</span>
+          <h3 id="about-title">배움의 문턱은 낮추고,<br />배움의 가능성은 넓힙니다.</h3>
+          <p>청소년부터 노년까지, 세대마다 다른 관심과 디지털 활용 수준을 존중합니다. ChatGPT와 Gemini 같은 생성형 AI부터 이미지·영상 창작, 홈페이지와 SNS 제작까지 필요한 내용을 쉽고 차근차근 익히도록 돕습니다.</p>
+          <p>교육의 중심은 기술 그 자체가 아닙니다. 정보를 분별하고, 창의적으로 표현하며, 하나님이 주신 재능과 자원을 이웃을 위해 사용하는 태도까지 함께 생각합니다.</p>
+          <div class="value-list">
+            <div class="value-item"><b>지혜 · 분별력</b><span>정보를 비판적으로 살피고 책임 있게 활용</span></div>
+            <div class="value-item"><b>소명 · 청지기 정신</b><span>재능과 기술을 의미 있게 사용</span></div>
+            <div class="value-item"><b>창의 · 도전</b><span>배운 것을 나만의 결과물로 표현</span></div>
+            <div class="value-item"><b>사랑 · 섬김</b><span>기술로 이웃과 공동체에 기여</span></div>
+          </div>
+          <div class="ratio-wrap" aria-label="교육 콘텐츠 구성 비율, AI·디지털 기술 75퍼센트와 기독교적 가치 25퍼센트">
+            <div class="ratio-top"><span>교육 콘텐츠 구성</span><span>기술 75% · 가치 25%</span></div>
+            <div class="ratio-bar"><span class="ratio-tech"></span><span class="ratio-faith"></span></div>
+            <div class="ratio-legend"><span>● AI·디지털 실습 75%</span><span>● 기독교적 가치 25%</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section program-section" id="program" aria-labelledby="program-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">PROGRAM</span>
+          <h2 id="program-title">세대에 맞게 배우고,<br />각자의 일상에서 활용합니다.</h2>
+          <p>같은 도구도 배우는 목적과 속도는 다릅니다. 대상의 경험과 필요를 고려해 교육 내용을 구성합니다.</p>
+        </div>
+        <!-- 교육과정 수정: 아래 .program-card 안의 제목, 설명, 태그를 편집하세요. -->
+        <div class="program-grid">
+          <article class="program-card">
+            <span class="program-number">01 / TEEN</span>
+            <div class="program-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 1.7 5.3L19 10l-5.3 1.7L12 17l-1.7-5.3L5 10l5.3-1.7L12 3Z"/><path d="m19 16 .8 2.2L22 19l-2.2.8L19 22l-.8-2.2L16 19l2.2-.8L19 16Z"/></svg></div>
+            <h3>청소년</h3><div class="audience">상상하고, 만들고, 발견하기</div>
+            <p>AI를 활용해 생각을 이미지와 영상으로 표현하고, 창의적인 진로 탐색과 디지털 윤리를 함께 배웁니다.</p>
+            <div class="tag-list"><span class="tag">AI 창작</span><span class="tag">이미지·영상</span><span class="tag">진로 탐색</span><span class="tag">디지털 윤리</span></div>
+          </article>
+          <article class="program-card">
+            <span class="program-number">02 / CAMPUS</span>
+            <div class="program-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-5 9 5-9 5-9-5Z"/><path d="M7 11.2V16c3.2 2.6 6.8 2.6 10 0v-4.8M21 9v6"/><path d="M21 15v3"/></svg></div>
+            <h3>대학생</h3><div class="audience">AI로 확장하는 학습과 진로</div>
+            <p>글쓰기와 자료 조사, 생산성 도구 활용부터 포트폴리오와 홈페이지 제작, 바이브 코딩까지 경험합니다.</p>
+            <div class="tag-list"><span class="tag">AI 생산성</span><span class="tag">글쓰기·조사</span><span class="tag">포트폴리오</span><span class="tag">바이브 코딩</span></div>
+          </article>
+          <article class="program-card">
+            <span class="program-number">03 / MIDLIFE</span>
+            <div class="program-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8m-4-4v4M7 9h4m-4 3h7"/><circle cx="17" cy="9" r="1"/></svg></div>
+            <h3>중년</h3><div class="audience">일과 삶에 더하는 새로운 가능성</div>
+            <p>ChatGPT·Gemini로 업무를 효율화하고, SNS 콘텐츠와 홈페이지를 제작하며 새로운 도전을 시작합니다.</p>
+            <div class="tag-list"><span class="tag">ChatGPT·Gemini</span><span class="tag">업무 효율화</span><span class="tag">SNS 제작</span><span class="tag">홈페이지</span></div>
+          </article>
+          <article class="program-card">
+            <span class="program-number">04 / SENIOR</span>
+            <div class="program-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M10 5h4m-3 14h2"/><path d="M3 8v8m18-8v8"/></svg></div>
+            <h3>노년</h3><div class="audience">스마트폰으로 이어지는 일상과 소통</div>
+            <p>스마트폰과 AI 기초부터 사진·영상 만들기, 생활 속 정보 활용과 가족·이웃과의 디지털 소통을 익힙니다.</p>
+            <div class="tag-list"><span class="tag">스마트폰 기초</span><span class="tag">AI 첫걸음</span><span class="tag">사진·영상</span><span class="tag">디지털 소통</span></div>
+          </article>
+        </div>
+        <div class="program-note">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5m0-8h.01"/></svg>
+          <span>교육 시간과 세부 차시는 기관의 목적, 참여자의 디지털 수준, 교육 환경에 따라 협의하여 구성합니다. 위 내용은 교육 분야 소개이며, 확정된 정기 강좌 일정은 아닙니다.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="areas-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">LEARNING AREAS</span>
+          <h2 id="areas-title">배우고, 만들고, 나누는<br />세 가지 핵심 교육 분야</h2>
+          <p>기초 활용부터 실제 결과물을 만드는 제작 과정까지 단계적으로 연결합니다.</p>
+        </div>
+        <div class="areas-grid">
+          <article class="area-card">
+            <span class="area-kicker">01 / USE</span>
+            <h3>AI 활용</h3>
+            <p>생성형 AI를 이해하고, 필요한 정보를 찾고 검증하며 일과 학습에 활용합니다.</p>
+            <ul><li>ChatGPT</li><li>Gemini</li><li>AI 글쓰기</li><li>검색·정보 검증</li></ul>
+          </article>
+          <article class="area-card">
+            <span class="area-kicker">02 / CREATE</span>
+            <h3>AI 창작</h3>
+            <p>아이디어와 이야기를 시각·영상 콘텐츠로 표현하고 창작 과정을 경험합니다.</p>
+            <ul><li>AI 이미지</li><li>AI 영상</li><li>AI 음악</li><li>스토리텔링</li></ul>
+          </article>
+          <article class="area-card">
+            <span class="area-kicker">03 / BUILD</span>
+            <h3>디지털 제작</h3>
+            <p>배운 내용을 온라인 공간에 구현하고 사람들과 공유할 수 있는 결과물로 만듭니다.</p>
+            <ul><li>홈페이지</li><li>블로그·SNS</li><li>Canva</li><li>바이브 코딩</li></ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section project-section" id="project" aria-labelledby="project-title">
+      <div class="container">
+        <div class="section-heading">
+          <span class="eyebrow">PROJECT</span>
+          <h2 id="project-title">배움이 콘텐츠가 되고,<br />콘텐츠가 섬김으로 이어지도록.</h2>
+          <p>교육 방향과 제작 모델을 소개하는 영역입니다. 실제 강의 사례와 결과물은 준비되는 대로 추가할 수 있습니다.</p>
+        </div>
+        <div class="project-grid">
+          <article class="project-card">
+            <div class="project-visual" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="9" width="34" height="26" rx="4"/><path d="M14 18h20M14 24h13M14 30h8M18 39h12"/><path d="m33 28 3 3 6-7"/></svg></div>
+            <div><small>EDUCATION DESIGN</small><h3>세대별 AI·디지털 교육과정</h3><p>청소년·대학생·중년·노년의 필요와 디지털 수준을 고려한 맞춤형 교육 방향을 기획합니다.</p><span class="project-status">교육 모델 기획 단계</span></div>
+          </article>
+          <article class="project-card">
+            <div class="project-visual" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 8h28v32H10z"/><path d="M16 16h16M16 22h16M16 28h9"/><path d="m29 33 3 3 6-7"/></svg></div>
+            <div><small>FAITH-BASED CONTENT</small><h3>말씀 기반 AI 창작·디지털 선교</h3><p>성경 말씀과 주제를 AI 글쓰기, 이미지·영상, 홈페이지와 SNS 콘텐츠로 연결하는 교육 모델입니다.</p><span class="project-status">교육 모델 구상 단계</span></div>
+          </article>
+          <article class="project-card">
+            <div class="project-visual" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="8" width="34" height="29" rx="3"/><path d="M7 16h34M13 12h.01M18 12h.01M13 23h10v8H13zM28 23h7M28 28h7M18 42h12"/></svg></div>
+            <div><small>DIGITAL MAKING</small><h3>교회·기관 디지털 콘텐츠</h3><p>교육 현장의 목적에 맞는 안내 페이지, 카드뉴스, 포스터와 영상 콘텐츠 제작을 지원합니다.</p><span class="project-status">결과물 추가 예정</span></div>
+          </article>
+          <article class="project-card">
+            <div class="project-visual" aria-hidden="true"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="15"/><path d="M9 24h30M24 9c5 5 7 10 7 15s-2 10-7 15c-5-5-7-10-7-15s2-10 7-15Z"/><path d="m19 24 3 3 7-7"/></svg></div>
+            <div><small>COMMUNITY & SERVICE</small><h3>디지털 소통과 공동체 섬김</h3><p>세대와 세대, 교회와 지역사회를 잇는 쉽고 따뜻한 디지털 활용을 지향합니다.</p><span class="project-status">콘텐츠 사례 추가 예정</span></div>
+          </article>
+        </div>
+        <p class="project-footnote">※ 이 영역은 현재의 교육 기획 및 지향점을 소개합니다. 실제 운영 실적이나 완료된 프로젝트를 의미하지 않습니다.</p>
+      </div>
+    </section>
+
+    <section class="section" id="faith" aria-labelledby="faith-title">
+      <div class="container faith-grid">
+        <div class="faith-intro">
+          <span class="eyebrow">FAITH</span>
+          <h2 id="faith-title">신앙은 교육의 방향이 되고,<br />기술은 섬김의 도구가 됩니다.</h2>
+          <p>성경 말씀을 장식적으로 배치하기보다 교육 주제와 실제 활동 속에서 의미 있게 연결합니다. 참여자의 신앙 배경과 이해 수준을 존중하며 지혜와 책임, 사랑과 섬김을 함께 생각합니다.</p>
+        </div>
+        <div>
+          <div class="faith-principles">
+            <article class="faith-item"><span class="scripture">창세기 1:28</span><h3>창조성과 문화명령</h3><p>창조 세계를 돌보고 선한 방향으로 가꾸는 책임을 디지털 창작과 연결합니다.</p></article>
+            <article class="faith-item"><span class="scripture">잠언 1:7</span><h3>지혜와 분별력</h3><p>AI가 제시한 정보를 그대로 받아들이지 않고, 근거를 살피며 책임 있게 판단합니다.</p></article>
+            <article class="faith-item"><span class="scripture">누가복음 10:27</span><h3>사랑과 이웃 섬김</h3><p>기술을 나와 공동체의 필요를 살피고 이웃을 돕는 방법으로 활용합니다.</p></article>
+            <article class="faith-item"><span class="scripture">베드로전서 4:10</span><h3>은사와 청지기 정신</h3><p>각자에게 주어진 재능과 배움의 기회를 선한 목적을 위해 나눕니다.</p></article>
+          </div>
+          <div class="faith-caution">말씀과 신앙적 가치는 교육의 목적과 실천을 돕는 바탕으로 다루며, 특정한 신앙 경험이나 표현을 강요하지 않습니다.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-panel">
+          <div>
+            <span class="eyebrow">CONTACT</span>
+            <h2 id="contact-title">함께 배우고 만들어 갈<br />교육을 이야기해 주세요.</h2>
+            <p class="intro">교회와 기독교 기관의 특강, 세대별 AI·디지털 교육, 콘텐츠 제작 교육을 제안하고 협의할 수 있습니다. 교육 대상과 희망 주제를 알려주시면 과정 구성의 출발점이 됩니다.</p>
+          </div>
+          <div class="contact-details">
+            <div class="contact-line">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+              <div><b>이메일 문의</b><span>공개용 이메일 주소 등록 예정</span></div>
+            </div>
+            <div class="contact-line">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H8l-4 4V4Z"/><path d="M8 9h8M8 12h5"/></svg>
+              <div><b>강의 및 기관 교육 문의</b><span>교회 · 기독교 기관 · 교육 공동체</span></div>
+            </div>
+            <p class="contact-edit">※ 이메일, 전화번호, SNS 링크는 실제 공개 가능한 정보를 준비한 뒤 입력해 주세요.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <div>
+        <div class="footer-brand">믿음ON! AI디어ON!</div>
+        <p class="footer-copy">FAITH × AI × DIGITAL · 말씀으로 배우고, 기술로 섬기다.</p>
+      </div>
+      <div class="footer-links"><a href="#about">브랜드 소개</a><a href="#program">교육과정</a><a href="#contact">강의 문의</a></div>
+      <p class="footer-copy">© <span id="current-year"></span> 믿음ON! AI디어ON!</p>
+    </div>
+  </footer>
+
+  <script>
+    // 모바일 메뉴 열기/닫기
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = navMenu.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+      menuToggle.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
+    });
+
+    // 메뉴 선택 시 모바일 메뉴 닫기
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        navMenu.classList.remove('open');
+        menuToggle.setAttribute('aria-expanded', 'false');
+        menuToggle.setAttribute('aria-label', '메뉴 열기');
+      });
+    });
+
+    // 현재 연도 자동 표시
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // 화면에 보이는 섹션에 맞춰 메뉴 활성화
+    const observedSections = document.querySelectorAll('main section[id]');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          navLinks.forEach((link) => {
+            const matches = link.getAttribute('href') === `#${entry.target.id}`;
+            link.classList.toggle('active', matches);
+          });
+        }
+      });
+    }, { rootMargin: '-35% 0px -55% 0px' });
+    observedSections.forEach((section) => sectionObserver.observe(section));
+  </script>
+</body>
+</html>

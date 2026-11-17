@@ -223,6 +223,31 @@
     .contact-line b { display: block; font-size: .85rem; }
     .contact-line span { display: block; color: rgba(255,255,255,.58); font-size: .76rem; }
     .contact-edit { margin: 2px 0 0; color: rgba(255,255,255,.43); font-size: .72rem; }
+    .contact-cta { display: inline-flex; width: fit-content; margin-top: 8px; }
+
+    /* Inquiry form */
+    .inquiry-section { padding: 88px 0 100px; background: #f7f7f2; scroll-margin-top: 82px; }
+    .inquiry-shell { max-width: 790px; margin: 0 auto; }
+    .inquiry-top { display: flex; justify-content: space-between; align-items: center; gap: 18px; margin-bottom: 25px; }
+    .back-link { display: inline-flex; align-items: center; gap: 8px; color: #586779; font-size: .84rem; font-weight: 800; }
+    .back-link:hover { color: #9a783b; }
+    .inquiry-card { padding: clamp(25px, 5vw, 48px); background: white; border: 1px solid var(--line); border-radius: 25px; box-shadow: var(--shadow); }
+    .inquiry-card h2 { margin: 12px 0 10px; color: var(--navy); font-size: clamp(2rem, 4.4vw, 2.8rem); line-height: 1.2; letter-spacing: -.06em; }
+    .inquiry-lead { margin: 0 0 30px; color: var(--muted); font-size: .92rem; }
+    .inquiry-form { display: grid; gap: 19px; }
+    .form-field { display: grid; gap: 8px; }
+    .form-field label { color: var(--navy); font-size: .88rem; font-weight: 800; }
+    .required-mark { color: #b46a4a; }
+    .form-field input, .form-field textarea { width: 100%; min-height: 52px; padding: 13px 15px; color: var(--ink); background: #fbfcfa; border: 1px solid #dfe4df; border-radius: 12px; outline: none; transition: border-color .2s, box-shadow .2s; }
+    .form-field textarea { min-height: 160px; resize: vertical; line-height: 1.7; }
+    .form-field input:focus, .form-field textarea:focus { border-color: #9a783b; box-shadow: 0 0 0 3px rgba(215,179,106,.17); }
+    .form-field input::placeholder, .form-field textarea::placeholder { color: #9aa4ae; }
+    .form-help { color: #84909d; font-size: .75rem; }
+    .privacy-note { display: flex; gap: 10px; padding: 15px 17px; color: #607064; background: #eef3ee; border-radius: 12px; font-size: .77rem; }
+    .privacy-note strong { color: #435c49; }
+    .inquiry-submit { width: 100%; border: 0; margin-top: 3px; }
+    .form-result { min-height: 24px; margin: 0; color: #536d59; font-size: .83rem; }
+    .mail-note { margin: 8px 0 0; color: #89939e; font-size: .72rem; text-align: center; }
 
     /* Footer */
     footer { padding: 30px 0; color: rgba(255,255,255,.58); background: #0b1728; }
@@ -273,6 +298,8 @@
       .area-card p { min-height: 0; }
       .project-grid { grid-template-columns: 1fr; }
       .contact-panel { grid-template-columns: 1fr; gap: 30px; padding: 34px 25px; }
+      .inquiry-section { padding: 65px 0 75px; }
+      .inquiry-top { align-items: flex-start; flex-direction: column; }
       .footer-inner { align-items: flex-start; flex-direction: column; }
     }
     @media (max-width: 480px) {
@@ -317,7 +344,7 @@
           <li><a href="#program">PROGRAM</a></li>
           <li><a href="#project">PROJECT</a></li>
           <li><a href="#faith">FAITH</a></li>
-          <li><a class="nav-contact" href="#contact">강의 문의</a></li>
+          <li><a class="nav-contact" href="#inquiry">강의 문의</a></li>
         </ul>
       </nav>
     </div>
@@ -332,7 +359,7 @@
           <p class="hero-lead">말씀으로 지혜를 배우고, AI로 창조하며,<br class="desktop-break" /> 디지털 기술로 세상을 섬기다.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#program">세대별 교육과정 보기 <span aria-hidden="true">→</span></a>
-            <a class="btn btn-outline" href="#contact">교육·강의 문의하기</a>
+            <a class="btn btn-outline" href="#inquiry">교육·강의 문의하기</a>
           </div>
           <div class="hero-note"><span aria-hidden="true"></span> 기술을 배우는 것을 넘어, 선한 영향력을 만드는 교육</div>
         </div>
@@ -537,8 +564,46 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16v12H8l-4 4V4Z"/><path d="M8 9h8M8 12h5"/></svg>
               <div><b>강의 및 기관 교육 문의</b><span>교회 · 기독교 기관 · 교육 공동체</span></div>
             </div>
-            <p class="contact-edit">※ 이메일, 전화번호, SNS 링크는 실제 공개 가능한 정보를 준비한 뒤 입력해 주세요.</p>
+            <a class="btn btn-primary contact-cta" href="#inquiry">교육 문의서 작성하기 <span aria-hidden="true">→</span></a>
+            <p class="contact-edit">문의 내용을 작성하면 이메일로 전달할 수 있습니다. (메일 작성창에서 최종 전송이 필요합니다.)</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="inquiry-section" id="inquiry" aria-labelledby="inquiry-title">
+      <div class="container inquiry-shell">
+        <div class="inquiry-top">
+          <span class="eyebrow">EDUCATION INQUIRY</span>
+          <a class="back-link" href="#contact"><span aria-hidden="true">←</span> 홈페이지로 돌아가기</a>
+        </div>
+        <div class="inquiry-card">
+          <span class="eyebrow">믿음ON! AI디어ON!</span>
+          <h2 id="inquiry-title">교육 문의서를<br />작성해 주세요.</h2>
+          <p class="inquiry-lead">필요한 교육 내용을 간단히 남겨주시면 확인 후 연락드릴 수 있도록 안내하겠습니다.</p>
+          <form class="inquiry-form" id="inquiryForm">
+            <div class="form-field">
+              <label for="inquiryName">이름 <span class="required-mark">*</span></label>
+              <input id="inquiryName" name="name" type="text" autocomplete="name" placeholder="이름을 입력해 주세요" required maxlength="50" />
+            </div>
+            <div class="form-field">
+              <label for="inquiryPhone">연락처 <span class="required-mark">*</span></label>
+              <input id="inquiryPhone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="예: 010-1234-5678" required maxlength="30" />
+            </div>
+            <div class="form-field">
+              <label for="inquiryEmail">이메일 <span class="required-mark">*</span></label>
+              <input id="inquiryEmail" name="email" type="email" autocomplete="email" placeholder="답변받을 이메일 주소" required maxlength="120" />
+            </div>
+            <div class="form-field">
+              <label for="inquiryContent">원하는 교육 내용 <span class="required-mark">*</span></label>
+              <textarea id="inquiryContent" name="education" placeholder="예: 중년 대상 ChatGPT·Gemini 활용 교육 / 참여 인원 / 희망 교육 시간이나 일정 등 편하게 작성해 주세요." required maxlength="3000"></textarea>
+              <span class="form-help">교육 대상, 희망 주제, 참여 인원, 일정 등 알고 계신 내용만 간략히 적어 주세요.</span>
+            </div>
+            <div class="privacy-note"><span aria-hidden="true">🔒</span><span><strong>개인정보 안내</strong><br />작성하신 내용은 교육 문의 확인과 회신을 위한 용도로만 사용해 주세요. 공용 컴퓨터에서는 제출 후 입력 내용을 지워 주세요.</span></div>
+            <button class="btn btn-primary inquiry-submit" type="submit">문의 내용 저장하고 이메일 작성하기 <span aria-hidden="true">→</span></button>
+            <p class="form-result" id="formResult" role="status" aria-live="polite"></p>
+            <p class="mail-note">제출 버튼을 누르면 메일 작성창이 열립니다. 내용을 확인한 뒤 메일 앱에서 ‘보내기’를 눌러야 접수됩니다.</p>
+          </form>
         </div>
       </div>
     </section>
@@ -550,7 +615,7 @@
         <div class="footer-brand">믿음ON! AI디어ON!</div>
         <p class="footer-copy">FAITH × AI × DIGITAL · 말씀으로 배우고, 기술로 섬기다.</p>
       </div>
-      <div class="footer-links"><a href="#about">브랜드 소개</a><a href="#program">교육과정</a><a href="#contact">강의 문의</a></div>
+      <div class="footer-links"><a href="#about">브랜드 소개</a><a href="#program">교육과정</a><a href="#inquiry">강의 문의</a></div>
       <p class="footer-copy">© <span id="current-year"></span> 믿음ON! AI디어ON!</p>
     </div>
   </footer>
@@ -578,6 +643,39 @@
 
     // 현재 연도 자동 표시
     document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // 문의 수신 이메일: 아래 주소를 실제 수신 이메일로 바꿔 주세요.
+    // 예) const INQUIRY_RECEIVER_EMAIL = 'myname@gmail.com';
+    const INQUIRY_RECEIVER_EMAIL = 'YOUR_EMAIL@example.com';
+    const inquiryForm = document.getElementById('inquiryForm');
+    const formResult = document.getElementById('formResult');
+
+    inquiryForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!inquiryForm.reportValidity()) return;
+
+      if (INQUIRY_RECEIVER_EMAIL === 'YOUR_EMAIL@example.com' || !INQUIRY_RECEIVER_EMAIL.includes('@')) {
+        formResult.textContent = '아직 수신 이메일 주소가 설정되지 않았습니다. 홈페이지 코드에서 INQUIRY_RECEIVER_EMAIL을 실제 이메일 주소로 바꿔 주세요.';
+        document.getElementById('inquiryName').focus();
+        return;
+      }
+
+      const formData = new FormData(inquiryForm);
+      const subject = '[믿음ON! AI디어ON!] 교육 문의';
+      const body = [
+        '믿음ON! AI디어ON! 교육 문의가 접수되었습니다.',
+        '',
+        `이름: ${formData.get('name')}`,
+        `연락처: ${formData.get('phone')}`,
+        `이메일: ${formData.get('email')}`,
+        '',
+        '[원하는 교육 내용]',
+        formData.get('education')
+      ].join('\n');
+      const mailtoUrl = `mailto:${INQUIRY_RECEIVER_EMAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      formResult.textContent = '메일 작성창을 여는 중입니다. 메일 앱에서 내용을 확인하고 보내기를 완료해 주세요.';
+      window.location.href = mailtoUrl;
+    });
 
     // 화면에 보이는 섹션에 맞춰 메뉴 활성화
     const observedSections = document.querySelectorAll('main section[id]');
